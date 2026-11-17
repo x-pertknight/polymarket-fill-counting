@@ -1,0 +1,54 @@
+[
+ {
+  "conditionId_prefix": "0x71bb007a",
+  "cell": "negrisk_small",
+  "blocks": [
+   95755153,
+   95818452
+  ],
+  "logs_scanned": 326064,
+  "scan_txs": 94,
+  "index_txs": 94,
+  "missing_from_index": [],
+  "extra_in_index": []
+ },
+ {
+  "conditionId_prefix": "0x463b885a",
+  "cell": "negrisk_small",
+  "blocks": [
+   95902199,
+   96045209
+  ],
+  "logs_scanned": 838515,
+  "scan_txs": 159,
+  "index_txs": 159,
+  "missing_from_index": [],
+  "extra_in_index": []
+ },
+ {
+  "conditionId_prefix": "0xedc03fba",
+  "cell": "standard_small",
+  "blocks": [
+   95151017,
+   95207883
+  ],
+  "logs_scanned": 1091269,
+  "scan_txs": 2,
+  "index_txs": 2,
+  "missing_from_index": [],
+  "extra_in_index": []
+ },
+ {
+  "conditionId_prefix": "0xaf63476c",
+  "cell": "standard_medium",
+  "blocks": [
+   94790255,
+   94828498
+  ],
+  "logs_scanned": 677975,
+  "scan_txs": 664,
+  "index_txs": 664,
+  "missing_from_index": [],
+  "extra_in_index": []
+ }
+]

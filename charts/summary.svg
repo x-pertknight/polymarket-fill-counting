@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1350" font-family="Helvetica, Arial, sans-serif">
+<rect width="1080" height="1350" fill="white"/>
+<text x="60" y="110" font-size="62" fill="#1c1c1c" text-anchor="start" font-weight="bold">Three ways to count</text>
+<text x="60" y="182" font-size="62" fill="#1c1c1c" text-anchor="start" font-weight="bold">Polymarket volume</text>
+<text x="60" y="236" font-size="26" fill="#555555" text-anchor="start" font-weight="normal">60 markets closed in October 2026, checked against receipts</text>
+<text x="60" y="270" font-size="26" fill="#555555" text-anchor="start" font-weight="normal">Medians across markets; 25 of the 60 markets sampled</text>
+<text x="60" y="345" font-size="44" fill="#1c1c1c" text-anchor="start" font-weight="bold">Most matches create or destroy shares</text>
+<rect x="60.0" y="355" width="681.6" height="110" fill="#d9822b"/>
+<text x="400.8" y="425" font-size="50" fill="white" text-anchor="middle" font-weight="bold">71%</text>
+<text x="68" y="505" font-size="27" fill="#d9822b" text-anchor="start" font-weight="bold">both sides buy</text>
+<text x="68" y="537" font-size="27" fill="#d9822b" text-anchor="start" font-weight="bold">or both sell</text>
+<rect x="741.6" y="355" width="192.0" height="110" fill="#9aa3ad"/>
+<text x="837.6" y="425" font-size="50" fill="white" text-anchor="middle" font-weight="bold">20%</text>
+<text x="749.6" y="505" font-size="27" fill="#4a535c" text-anchor="start" font-weight="bold">buyer vs</text>
+<text x="749.6" y="537" font-size="27" fill="#4a535c" text-anchor="start" font-weight="bold">seller</text>
+<rect x="933.6" y="355" width="76.8" height="110" fill="#2a6fb0"/>
+<text x="921.6" y="505" font-size="27" fill="#2a6fb0" text-anchor="start" font-weight="bold">mixed 8%</text>
+<text x="921.6" y="537" font-size="27" fill="#2a6fb0" text-anchor="start" font-weight="bold"></text>
+<text x="60" y="650" font-size="44" fill="#1c1c1c" text-anchor="start" font-weight="bold">Adding up fills against cash that moved</text>
+<text x="60" y="760" font-size="96" fill="#2a6fb0" text-anchor="start" font-weight="bold">+10%</text>
+<text x="60" y="808" font-size="27" fill="#1c1c1c" text-anchor="start" font-weight="normal">every fill added up,</text>
+<text x="60" y="842" font-size="27" fill="#1c1c1c" text-anchor="start" font-weight="normal">counted at both ends</text>
+<text x="560" y="760" font-size="96" fill="#d9822b" text-anchor="start" font-weight="bold">+68%</text>
+<text x="560" y="808" font-size="27" fill="#1c1c1c" text-anchor="start" font-weight="normal">reading fills wallet</text>
+<text x="560" y="842" font-size="27" fill="#1c1c1c" text-anchor="start" font-weight="normal">by wallet counts cash twice</text>
+<text x="60" y="960" font-size="44" fill="#1c1c1c" text-anchor="start" font-weight="bold">What the venue's volume matches</text>
+<text x="60" y="1070" font-size="76" fill="#d9822b" text-anchor="start" font-weight="bold">21 and 20</text>
+<text x="60" y="1118" font-size="27" fill="#1c1c1c" text-anchor="start" font-weight="normal">of 35 markets within 5% of</text>
+<text x="60" y="1152" font-size="27" fill="#1c1c1c" text-anchor="start" font-weight="normal">fill total / cash moved</text>
+<text x="560" y="1070" font-size="76" fill="#4a535c" text-anchor="start" font-weight="bold">1 of 35</text>
+<text x="560" y="1118" font-size="27" fill="#1c1c1c" text-anchor="start" font-weight="normal">within 5% of the</text>
+<text x="560" y="1152" font-size="27" fill="#1c1c1c" text-anchor="start" font-weight="normal">one-sided count</text>
+<text x="60" y="1220" font-size="38" fill="#1c1c1c">Venue figure is about <tspan font-weight="bold" fill="#d9822b">1.9x</tspan> the one-sided count</text>
+<line x1="60" x2="1020" y1="1262" y2="1262" stroke="#e3e3e3" stroke-width="2"/>
+<text x="60" y="1310" font-size="26" fill="#555555" text-anchor="start" font-weight="normal">Marco Amendola · data and code: github.com/x-pertknight/polymarket-fill-counting</text>
+</svg>

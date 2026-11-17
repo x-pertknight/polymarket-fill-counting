@@ -1,0 +1,39 @@
+{
+ "topics": {
+  "OrderFilled_v2": "0xd543adfd945773f1a62f74f0ee55a5e3b9b1a28262980ba90b1a89f2ea84d8ee",
+  "OrdersMatched_v2": "0x174b3811690657c217184f89418266767c87e4805d09680c39fc9c031c0cab7c",
+  "FeeCharged": "0x55bb3cade9d43b798a4fe5ffdd05024b2d7870df53920673bfc7e68047cd0ab1",
+  "OrderFilled_v1": "0xd0a08e8c493f9c94f29311604c9de1b4e8c8d4c06bd0c789af57f2d65bfec0f6"
+ },
+ "pusd_decimals": 6,
+ "head_block": 97467301,
+ "code_bytes": {
+  "readme_ctf": 10736,
+  "docs_ctf": 11096,
+  "readme_negrisk": 13367,
+  "docs_negrisk": 13890,
+  "exchangeV3": 61,
+  "standard": 21037,
+  "negrisk": 21037
+ },
+ "live_logs": {
+  "standard": {
+   "n": 19173,
+   "by_topic0": {
+    "0xd543adfd945773f1a62f74f0ee55a5e3b9b1a28262980ba90b1a89f2ea84d8ee": 11307,
+    "0x55bb3cade9d43b798a4fe5ffdd05024b2d7870df53920673bfc7e68047cd0ab1": 3962,
+    "0x174b3811690657c217184f89418266767c87e4805d09680c39fc9c031c0cab7c": 3904
+   },
+   "sample_tx": "0x9655ec9a3601bb4d5f357780f0cc0201639291a53c0c26c997f16bd56beab320"
+  },
+  "negrisk": {
+   "n": 3457,
+   "by_topic0": {
+    "0xd543adfd945773f1a62f74f0ee55a5e3b9b1a28262980ba90b1a89f2ea84d8ee": 1860,
+    "0x55bb3cade9d43b798a4fe5ffdd05024b2d7870df53920673bfc7e68047cd0ab1": 799,
+    "0x174b3811690657c217184f89418266767c87e4805d09680c39fc9c031c0cab7c": 798
+   },
+   "sample_tx": "0x39ed912564e947805bab448a74917c862ae55913089ceb4eed3898068441e4c8"
+  }
+ }
+}
