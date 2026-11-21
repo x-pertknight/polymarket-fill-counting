@@ -127,3 +127,9 @@ shasum -a 256 -c SHA256SUMS
 ## Files
 
 `DOCS_FIRST.md` contracts and events as documented; `PREDICTIONS.md` pre-registration (frozen); `DEVIATIONS.md` dated changes; `data/` frame, sample, index, reduced receipts, results; `code/`; `charts/summary.png`; `post.md`, `post_comment.md`.
+
+The saved receipts contain the wallet addresses that appear in public chain logs. No address is labelled or reported on its own; every result is per market or across markets.
+
+## License
+
+Code is MIT licensed. Text and data are CC BY 4.0.
