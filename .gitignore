@@ -4,4 +4,3 @@ __pycache__/
 *.tmp
 data/frame_raw.jsonl
 data/frame.json
-STATUS.md

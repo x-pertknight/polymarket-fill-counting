@@ -1,6 +1,6 @@
 """Build the sample frame from Gamma metadata only (no trades).
 
-Server-side prefilter (see DEVIATIONS.md), then the registered rules applied locally.
+Server-side prefilter (see DEVIATIONS.md), then the rules in PREDICTIONS.md applied locally.
 Writes data/frame_raw.jsonl (all fetched rows, trimmed) and data/frame.json (eligible).
 """
 import json

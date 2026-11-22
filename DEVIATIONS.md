@@ -26,7 +26,7 @@ The Gamma `/markets/keyset` endpoint returns HTTP 500 when `start_date_min` is u
 Needed: the transaction hashes of each sampled market's fills, as an index only. Every number would still come from receipts read over RPC.
 
 Tried, with plain and honest clients only:
-1. Polymarket Data API (`data-api.polymarket.com`, v2 `/v2/trades`, `/v2/openapi.json`, and the root path). The server resets the TCP connection (ECONNRESET, errno 54) for curl, Python urllib with a generic user agent, the page-fetch tool, and a final retry with only `Accept: application/json` and a truthful client name. No Origin or Referer was sent. The earlier repo (`polymarket-vandyke-receipts`) reached this API with browser-style headers (Chrome User-Agent, Origin, Referer). That access method is not reused here.
+1. Polymarket Data API (`data-api.polymarket.com`, v2 `/v2/trades`, `/v2/openapi.json`, and the root path). The server resets the TCP connection (ECONNRESET, errno 54) for curl, Python urllib with a generic user agent, a browser page fetch, and a final retry with only `Accept: application/json` and a truthful client name. No Origin or Referer was sent. The earlier repo (`polymarket-vandyke-receipts`) reached this API with browser-style headers (Chrome User-Agent, Origin, Referer). That access method is not reused here.
 2. Subgraphs. The Polymarket documentation has no subgraph page (`market-data/subgraph.md` returns 404) and `resources/blockchain-data` names no GraphQL endpoint. It lists Goldsky pipelines, CryptoHouse, Dune and Allium. The Goldsky page lists only a Feeds REST API that needs an API key or pay-per-request (x402) and Turbo Pipelines that need a Goldsky account. A third-party repository (warproxxx/poly_data README) states the old subgraph indexer was dropped at the 2026-04-28 contract migration and that Envio HyperSync now needs a free token. I did not create any account or token.
 3. Dune: no queries could be run.
 
@@ -57,7 +57,7 @@ What works. The Data API v2 `/v2/trades` endpoint answers from a real browser (B
 
 What still fails. Honest HTTP clients (curl, urllib, Python stdlib) still get ECONNRESET on this path. The reset is a TLS-fingerprint / WAF rule, not a parameter or header problem: `/v2/` returns a JSON 404 to curl while `/v2/trades` resets, for the same client.
 
-The decision. Marco approved this access on 2026-11-17 and asked that it be logged here. The rationale is that a real browser is not the fabricated browser-style headers ruled out above; it is the client the API admits by design, on a public, unauthenticated endpoint.
+The decision. On 2026-11-17 I decided to use this access and log it here. The rationale is that a real browser is not the fabricated browser-style headers ruled out above; it is the client the API admits by design, on a public, unauthenticated endpoint.
 
 What was written. `data/index/<conditionId>.json`, one file per sampled market, with `source` recording the endpoint. Each trade row is reduced to `{transactionHash, timestamp, asset}`: no proxy_wallet, name or pseudonym is stored anywhere. `data/index/_SUMMARY.json` holds, per market, the distinct transaction-hash count and the `complete` flag. All 60 markets are `complete: true` (59,355 distinct transactions across the sample). The fetch script is `code/fetch_index.py`; the summary is recomputed by `code/build_summary.py`.
 

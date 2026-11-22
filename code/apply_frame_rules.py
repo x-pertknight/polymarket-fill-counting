@@ -1,4 +1,4 @@
-"""Apply the registered frame rules (PREDICTIONS.md section 4) to data/frame_raw.jsonl.
+"""Apply the frame rules in PREDICTIONS.md section 4 to data/frame_raw.jsonl.
 
 Writes data/frame.json (eligible markets, sorted by conditionId) and prints counts,
 including how many candidates are excluded as version "v2" (prediction P22).
@@ -35,7 +35,7 @@ def event_info(m):
 
 
 def classify(m):
-    """Return (reason_excluded or None) for the registered rules, in order."""
+    """Return (reason_excluded or None) for the rules in PREDICTIONS.md, in order."""
     closed, start = ts(m["closedTime"]), ts(m["startDate"])
     if closed is None or not (OCT1 <= closed < NOV1):
         return "closedTime_not_october"

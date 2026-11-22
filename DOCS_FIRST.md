@@ -1,6 +1,6 @@
 # DOCS_FIRST: what the documentation and contract source say, and what must be measured
 
-Written 2026-11-17, before any market or chain data was pulled. Nothing in this file comes from a data pull. Contract source was read directly from the public GitHub repositories (commits and file hashes in section 8). Documentation pages were read through a page fetcher that summarises, so each documentation claim below should be re-checked against the page itself before publication. Where a page is silent, that is stated.
+Dated 2026-11-17. It entered git with the results (d441594). Nothing in this file comes from a data pull. Contract source was read directly from the public GitHub repositories (commits and file hashes in section 8). Documentation pages were read through a page fetcher that summarises, so each documentation claim below should be re-checked against the page itself before publication. Where a page is silent, that is stated.
 
 ## 0. The first finding: the contracts changed after the earlier repo
 

@@ -1,4 +1,4 @@
-"""Draw the registered sample (PREDICTIONS.md section 4) from data/frame.json.
+"""Draw the sample defined in PREDICTIONS.md section 4 from data/frame.json.
 
 Per cell (negRisk x volume band): order by sha256(conditionId + '|fill-counting-2026'),
 take up to 10, at most 2 markets per Gamma event. No random number generator.
