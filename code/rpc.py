@@ -1,6 +1,6 @@
 """Cached, throttled JSON-RPC and HTTP client for the shared public endpoints.
 
-Rules (RULES.md): at most two requests in flight (this client is sequential, so one),
+Rules for the shared public endpoints: at most two requests in flight (this client is sequential, so one),
 back off on errors, cache every response on disk so nothing is fetched twice.
 Standard library only.
 """

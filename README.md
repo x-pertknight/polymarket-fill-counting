@@ -1,6 +1,6 @@
 # Polymarket fill counting: how much does summing fill events differ from cash that moved?
 
-Technical document for the post (`post.md`, image `charts/summary.png`). Study 6. Read-only research on public chain data; no trading, no accounts.
+Full method and results behind `post.md` (image `charts/summary.png`). Read-only research on public chain data; no trading, no accounts.
 
 ## Question and the three claims (kept apart)
 
@@ -57,9 +57,9 @@ Full ranges per cell are in `data/results_all.json` (`groups`).
 
 A market with more than 1,000 fill transactions is read as a deterministic subsample (transaction hash divisible by 2^k, k the smallest value that expects at most 1,000 kept). 25 of 60 markets are subsampled, including most large ones. Subsampled markets: N1/C median 1.126; fully enumerated: 1.068. That difference is mostly market size, because the two groups differ in volume. A direct test: on the 9 fully enumerated markets with at least 300 transactions, re-drawing the same hash rule at k = 1 and k = 2 moved N1/C by a median of -0.027 and -0.051 (always downward, absolute median 0.035 and 0.054). So subsampling does not inflate the headline; if anything it understates it slightly. Based on 9 markets only. Subsampled markets are left out of every venue comparison.
 
-## Pre-registered predictions: 11 hits, 10 misses of 21 scorable (P22 had no prior and is recorded only)
+## Predictions: 11 hits, 10 misses of 21 scorable (P22 had no prior and is recorded only)
 
-Scored against `PREDICTIONS.md` (not edited). P22 had no prior, so 21 are scorable. No near misses. The misses are mostly one error: I predicted most collateral moves in buyer-meets-seller matches. It does not; most matches are mint or merge.
+Scored against `PREDICTIONS.md` (not edited). Predictions are written down and scored, misses included. No hash was recorded and they entered git with the results (d441594). P22 had no prior, so 21 are scorable. No near misses. The misses are mostly one error: I predicted most collateral moves in buyer-meets-seller matches. It does not; most matches are mint or merge.
 
 | # | prediction | observed | result |
 |---|---|---|---|
@@ -111,22 +111,22 @@ Kill rule (pilot, applied once): median of N1/C minus 1 over the 20 pilot market
 - The index validation covers four small and medium markets.
 - The venue comparison shows which definitions the venue figure is near, not how it is built.
 
-Deviations from the pre-registration, and the mistakes made along the way (a wrong block-time assumption in the validation scan, a retry loop on the shared endpoints), are logged in `DEVIATIONS.md`.
+Deviations from `PREDICTIONS.md`, and the mistakes made along the way (a wrong block-time assumption in the validation scan, a retry loop on the shared endpoints), are logged in `DEVIATIONS.md`.
 
 ## Reproduce (offline, from saved files, standard library only)
 
 ```
 python3 -I code/compute.py all     # data/results_all.json
-python3 -I code/score.py           # data/scoring.json
+python3 -I code/compute.py pilot   # data/results_pilot.json
 python3 -I code/charts.py          # charts/summary.png (needs Chrome)
 shasum -a 256 -c SHA256SUMS
 ```
 
-`code/fetch_index.py`, `code/fetch_receipts.py`, `code/validate_index.py` and the frame scripts need the network and are not part of the recompute. The raw RPC cache (`data/cache/`, about 6 GB) is not in the repo. The market frame files (`data/frame_raw.jsonl`, 806 MB, and `data/frame.json`, 72 MB) are also left out because of GitHub's file size limit; the frame scripts rebuild them from the venue's public market list, and their checksums are in `SHA256SUMS`. `code/score.py` needs them only for the frame counts (P21, P22); `code/compute.py` does not.
+`code/fetch_index.py`, `code/fetch_receipts.py`, `code/validate_index.py` and the frame scripts need the network and are not part of the recompute. The raw RPC cache (`data/cache/`, about 6 GB) is not in the repo. The market frame files (`data/frame_raw.jsonl`, 806 MB, and `data/frame.json`, 72 MB) are also left out because of GitHub's file size limit. So `python3 -I code/score.py` (`data/scoring.json`) does not run from a clone: it needs them for the frame counts behind P21 and P22. The committed `data/scoring.json` is from the run with those files. `code/compute.py` does not need them. The frame scripts rebuild the two files from the venue's public market list (network needed); the market list changes over time, so a rebuild need not match. SHA-256 of the files used here: `data/frame_raw.jsonl` 3f613b08686222740baea111c2b52c5deacba18f6be16cf4e396db2967aaba10, `data/frame.json` 0d2688ee25007056c273ee5381137068b48766f854ebf362a42de9eb55d75ff4. `SHA256SUMS` lists shipped files only.
 
 ## Files
 
-`DOCS_FIRST.md` contracts and events as documented; `PREDICTIONS.md` pre-registration (frozen); `DEVIATIONS.md` dated changes; `data/` frame, sample, index, reduced receipts, results; `code/`; `charts/summary.png`; `post.md`, `post_comment.md`.
+`DOCS_FIRST.md` contracts and events as documented; `PREDICTIONS.md` predictions and definitions (frozen); `DEVIATIONS.md` dated changes; `data/` frame, sample, index, reduced receipts, results; `code/`; `charts/summary.png`; `post.md`, `post_comment.md`.
 
 The saved receipts contain the wallet addresses that appear in public chain logs. No address is labelled or reported on its own; every result is per market or across markets.
 

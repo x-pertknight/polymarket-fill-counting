@@ -6,8 +6,10 @@ Also checks every trade entry carries only the three allowed fields
 """
 import json
 import os
+from pathlib import Path
 
-DATA = "/Users/marco/dev/polymarket-fill-counting/data"
+# Data folder relative to this file, so the repo can live anywhere.
+DATA = Path(__file__).resolve().parent.parent / "data"
 INDEX = os.path.join(DATA, "index")
 ALLOWED = {"transactionHash", "timestamp", "asset"}
 

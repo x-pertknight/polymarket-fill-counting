@@ -16,10 +16,12 @@ skipped.
 import datetime
 import json
 import os
+from pathlib import Path
 import time
 import urllib.parse
 
-DATA = "/Users/marco/dev/polymarket-fill-counting/data"
+# Data folder relative to this file, so the repo can live anywhere.
+DATA = Path(__file__).resolve().parent.parent / "data"
 INDEX = os.path.join(DATA, "index")
 SOURCE = "https://data-api.polymarket.com/v2/trades (browser)"
 LIMIT = 500

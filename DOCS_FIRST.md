@@ -17,7 +17,7 @@ The earlier repo (`polymarket-vandyke-receipts`) analysed Dec 2025 to Jan 2026 t
 | Fees | per-order `feeRateBps` | set at match time, passed as `takerFeeAmount` and `makerFeeAmounts` | V2 `matchOrders`; changelog |
 | Third system | none | ExchangeV3 `0xe3333700cA9d93003F00f0F71f8515005F6c00Aa` with PositionManager, EIP-712 domain version "3" | contracts page; onchain-position-data page |
 
-Consequence: the earlier repo's 49% figure and its maker-field rule were measured on V1. Whether the same rule holds on V2 is a thing to measure, not to assume. The V2 source suggests it does (section 2), but the brief asks for a measured answer.
+Consequence: the earlier repo's 49% figure and its maker-field rule were measured on V1. Whether the same rule holds on V2 is a thing to measure, not to assume. The V2 source suggests it does (section 2), but this study measures it instead of assuming it.
 
 ## 1. Documented: what the original exchange (V1) emits
 

@@ -4,7 +4,7 @@ I compared the exchange's fill events with the cash in the transaction receipts 
 
 Why the gap is small
 
-Most matches are not a buyer meeting a seller. 71% are the exchange creating or destroying shares: two buyers fund a new pair of shares, or two sellers hand a pair back. There the fills add up to the cash once. Only 20% are a plain buyer-meets-seller trade, where the same cash shows up at both ends. I had predicted the opposite mix. 10 of my 21 scorable pre-registered predictions missed, most of them on this.
+Most matches are not a buyer meeting a seller. 71% are the exchange creating or destroying shares: two buyers fund a new pair of shares, or two sellers hand a pair back. There the fills add up to the cash once. Only 20% are a plain buyer-meets-seller trade, where the same cash shows up at both ends. I had predicted the opposite mix. 10 of my 21 scorable predictions missed, most of them on this.
 
 Two ways to add it up
 

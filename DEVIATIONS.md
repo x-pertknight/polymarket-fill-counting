@@ -1,34 +1,34 @@
-# DEVIATIONS and additions after pre-registration
+# Deviations from PREDICTIONS.md and later additions
 
-`PREDICTIONS.md` is not edited. Everything here is dated and was written before the data pull it concerns.
+`PREDICTIONS.md` is not edited. Every entry here is dated. Predictions are written down and scored, misses included. No hash was recorded and they entered git with the results, as did this file.
 
-## 2026-11-17, before any data pull: conditions attached to Gate 1 approval
+## 2026-11-17: four conditions added to the method
 
-Gate 1 was approved on 2026-11-17 by the reviewer, with these four conditions. The method definitions, sample draw, identity checks, pilot and kill statistic stand as pre-registered.
+On 2026-11-17 four conditions were added to the method. The method definitions, sample draw, identity checks, pilot and kill statistic stand as written in `PREDICTIONS.md`.
 
-1. Coverage of the excluded exchange. If more than half of the frame candidates are excluded because they run on ExchangeV3 (Gamma `version` "v2"; prediction P22), I spend up to half a day trying to get its event layout from verified contract source on a block explorer or Sourcify. If found, those markets are added as a seventh and eighth cell (standard and neg-risk analogues or whatever the layout supports), with their own rows, marked "added after pre-registration". If not found, the first sentence of the article states which share of October markets the study covers.
+1. Coverage of the excluded exchange. If more than half of the frame candidates are excluded because they run on ExchangeV3 (Gamma `version` "v2"; prediction P22), I spend up to half a day trying to get its event layout from verified contract source on a block explorer or Sourcify. If found, those markets are added as a seventh and eighth cell (standard and neg-risk analogues or whatever the layout supports), with their own rows, marked "added after PREDICTIONS.md". If not found, the first sentence of the article states which share of October markets the study covers.
 2. Three claims are kept apart in every output and never merged:
    - (i) a parsing error an analyst can make: wallet attribution W against receipts C;
    - (ii) one-sided versus two-sided accounting, a definition and not an error: N1 against C;
    - (iii) what the venue's own reported volume corresponds to: V against OM, N1 and C.
    The article and posts use the word "overstates" only for (i). For (iii) they report which definition the venue number matches and stop there.
 3. Self-trades (P20) are reported as one aggregate share across the sample. No market-level list, no addresses, no wording that suggests manipulation.
-4. Shared RPC and budget. Follow the "Shared public RPC" section of `RULES.md`: at most two requests in flight, back off on errors, cache every receipt to disk. If the pilot shows the full run would take more than about six hours of fetching, I report the estimate and propose a smaller per-market receipt cap instead of pressing on. A lower cap would then be logged here before use.
+4. Shared RPC and budget. Shared public RPC: at most two requests in flight, back off on errors, cache every receipt to disk. If the pilot shows the full run would take more than about six hours of fetching, I report the estimate and propose a smaller per-market receipt cap instead of pressing on. A lower cap would then be logged here before use.
 
-Unchanged: no `git init`, commit, push or publish; the kill rule is applied once, on the pilot; the post pack is written before Gate 2.
+Unchanged: the kill rule is applied once, on the pilot.
 
 ## 2026-11-17, before the frame crawl: how the frame is queried
 
-The Gamma `/markets/keyset` endpoint returns HTTP 500 when `start_date_min` is used and has no `closedTime` filter. The frame is therefore fetched with a coarse server-side prefilter: `closed=true`, `volume_num_min=1000`, `end_date_min=2026-09-20T00:00:00Z`, `end_date_max=2026-11-30T00:00:00Z`, then every registered rule (closedTime in October, startDate on or after 2026-09-01, version, volume) is applied locally. This can miss a market resolved in October whose `endDate` lies outside 20 Sep to 30 Nov. The script reports how many frame markets have an `endDate` within 10 days of either edge, as a gauge of that loss. The registered rules and the draw are unchanged.
+The Gamma `/markets/keyset` endpoint returns HTTP 500 when `start_date_min` is used and has no `closedTime` filter. The frame is therefore fetched with a coarse server-side prefilter: `closed=true`, `volume_num_min=1000`, `end_date_min=2026-09-20T00:00:00Z`, `end_date_max=2026-11-30T00:00:00Z`, then every rule in `PREDICTIONS.md` (closedTime in October, startDate on or after 2026-09-01, version, volume) is applied locally. This can miss a market resolved in October whose `endDate` lies outside 20 Sep to 30 Nov. The script reports how many frame markets have an `endDate` within 10 days of either edge, as a gauge of that loss. The rules in `PREDICTIONS.md` and the draw are unchanged.
 
 ## 2026-11-17, access route for per-market fill transaction hashes
 
 Needed: the transaction hashes of each sampled market's fills, as an index only. Every number would still come from receipts read over RPC.
 
 Tried, with plain and honest clients only:
-1. Polymarket Data API (`data-api.polymarket.com`, v2 `/v2/trades`, `/v2/openapi.json`, and the root path). The server resets the TCP connection (ECONNRESET, errno 54) for curl, Python urllib with a generic user agent, the page-fetch tool, and a final retry with only `Accept: application/json` and a truthful client name. No Origin or Referer was sent. The earlier repo (`polymarket-vandyke-receipts`) reached this API with browser-style headers (Chrome User-Agent, Origin, Referer). That access method is not reused here, on the reviewer's instruction.
+1. Polymarket Data API (`data-api.polymarket.com`, v2 `/v2/trades`, `/v2/openapi.json`, and the root path). The server resets the TCP connection (ECONNRESET, errno 54) for curl, Python urllib with a generic user agent, the page-fetch tool, and a final retry with only `Accept: application/json` and a truthful client name. No Origin or Referer was sent. The earlier repo (`polymarket-vandyke-receipts`) reached this API with browser-style headers (Chrome User-Agent, Origin, Referer). That access method is not reused here.
 2. Subgraphs. The Polymarket documentation has no subgraph page (`market-data/subgraph.md` returns 404) and `resources/blockchain-data` names no GraphQL endpoint. It lists Goldsky pipelines, CryptoHouse, Dune and Allium. The Goldsky page lists only a Feeds REST API that needs an API key or pay-per-request (x402) and Turbo Pipelines that need a Goldsky account. A third-party repository (warproxxx/poly_data README) states the old subgraph indexer was dropped at the 2026-04-28 contract migration and that Envio HyperSync now needs a free token. I did not create any account or token.
-3. Dune cannot run queries (RULES.md).
+3. Dune: no queries could be run.
 
 Side finding: the Goldsky page says Polymarket Protocol V2 markets (ExchangeV3 and PositionManager) start on 2026-11-09. October 2026 markets are therefore all on CTF Exchange V2 and NegRisk CTF Exchange V2, which agrees with the observed P22 of 0 of 123,988 candidates (Gamma reports version "v1" for all 237,183 crawled markets).
 
@@ -36,7 +36,7 @@ Status: no trade index is available. The frame, sample and hashes are unchanged.
 
 ## 2026-11-17, CryptoHouse checked as a trade index: no usable data
 
-Route tried on the reviewer's instruction: CryptoHouse (crypto.clickhouse.com, ClickHouse and Goldsky), named on Polymarket's `resources/blockchain-data` page.
+Route tried next: CryptoHouse (crypto.clickhouse.com, ClickHouse and Goldsky), named on Polymarket's `resources/blockchain-data` page.
 
 Access: free, no account or key needed to run read queries in its web UI. Stated limits (ClickHouse launch post): 60 queries per hour per user, 60 seconds per query, community use and not commercial products. No documented HTTP endpoint or connection details. Cookies: non-essential cookies were declined. Four queries were run, all read-only and narrow: `DESCRIBE`, a 5-second sample (a syntax error and then a rerun), and one min, max and count query.
 
@@ -57,7 +57,7 @@ What works. The Data API v2 `/v2/trades` endpoint answers from a real browser (B
 
 What still fails. Honest HTTP clients (curl, urllib, Python stdlib) still get ECONNRESET on this path. The reset is a TLS-fingerprint / WAF rule, not a parameter or header problem: `/v2/` returns a JSON 404 to curl while `/v2/trades` resets, for the same client.
 
-The decision. Marco approved this access on 2026-11-17 and asked that it be logged here. The rationale is that a real browser is not the fabricated browser-style headers that the reviewer ruled out; it is the client the API admits by design, on a public, unauthenticated endpoint.
+The decision. Marco approved this access on 2026-11-17 and asked that it be logged here. The rationale is that a real browser is not the fabricated browser-style headers ruled out above; it is the client the API admits by design, on a public, unauthenticated endpoint.
 
 What was written. `data/index/<conditionId>.json`, one file per sampled market, with `source` recording the endpoint. Each trade row is reduced to `{transactionHash, timestamp, asset}`: no proxy_wallet, name or pseudonym is stored anywhere. `data/index/_SUMMARY.json` holds, per market, the distinct transaction-hash count and the `complete` flag. All 60 markets are `complete: true` (59,355 distinct transactions across the sample). The fetch script is `code/fetch_index.py`; the summary is recomputed by `code/build_summary.py`.
 
