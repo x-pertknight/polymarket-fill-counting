@@ -110,6 +110,7 @@ Kill rule (pilot, applied once): median of N1/C minus 1 over the 20 pilot market
 - Matches are windowed by `OrdersMatched`. Neg-risk conversions sit outside `matchOrders` and are not counted.
 - The index validation covers four small and medium markets.
 - The venue comparison shows which definitions the venue figure is near, not how it is built.
+- The checksums in `SHA256SUMS` are pinned inside the repo, so they catch accidental changes and partial tampering, not a deliberate change made together with regenerated checksums.
 
 Deviations from `PREDICTIONS.md`, and the mistakes made along the way (a wrong block-time assumption in the validation scan, a retry loop on the shared endpoints), are logged in `DEVIATIONS.md`.
 
