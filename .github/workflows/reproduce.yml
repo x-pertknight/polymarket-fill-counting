@@ -17,7 +17,10 @@ jobs:
           python-version: "3.12"
       # compute.py uses the standard library only, so no packages are installed.
       # score.py is not run: it needs data/frame_raw.jsonl, which is not in the repo (see README).
+      # The committed files must match the pins before compute.py rewrites data/results_all.json.
+      - name: Committed shipped files match SHA256SUMS
+        run: sha256sum -c --strict SHA256SUMS
       - name: Recompute every study number from the shipped files
         run: python3 -I code/compute.py all
-      - name: Shipped files, including the rewritten data/results_all.json, match SHA256SUMS
-        run: sha256sum -c --strict SHA256SUMS
+      - name: The recompute is byte identical to the committed files
+        run: git diff --exit-code
