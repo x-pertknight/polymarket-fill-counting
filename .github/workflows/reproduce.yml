@@ -22,5 +22,6 @@ jobs:
         run: sha256sum -c --strict SHA256SUMS
       - name: Recompute every study number from the shipped files
         run: python3 -I code/compute.py all
+      # git status also catches a results file that was deleted and recreated as untracked.
       - name: The recompute is byte identical to the committed files
-        run: git diff --exit-code
+        run: git diff --exit-code && test -z "$(git status --porcelain)"
