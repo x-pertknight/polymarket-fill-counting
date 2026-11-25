@@ -88,6 +88,6 @@ Correction to the entry above, same day. The HTTP 403 from publicnode on `eth_ge
 
 ## 2026-11-25: post.md synced with the published post
 
-`post.md` was edited to match the LinkedIn post after three wording corrections made to the published post on 25 November 2026. The venue comparison now reads "In 21 of 35 markets it is within 5% of the fill total, and in 20 within 5% of the cash moved" instead of "about 20" for both. The sampling rule now reads "on or after 1 September" instead of "after 1 September". The predictions sentence now reads "10 of the 21 scorable predictions I wrote down missed" instead of "10 of my 21 scorable predictions missed".
+`post.md` was edited to match the published LinkedIn post. Three sentences differed: two were corrected on the post on 25 November 2026, and the predictions sentence already read differently on the post. The venue comparison now reads "In 21 of 35 markets it is within 5% of the fill total, and in 20 within 5% of the cash moved" instead of "about 20" for both. The sampling rule now reads "on or after 1 September" instead of "after 1 September". The predictions sentence now reads "10 of the 21 scorable predictions I wrote down missed" instead of "10 of my 21 scorable predictions missed".
 
 No figure in the study changed. The `post.md` checksum in `SHA256SUMS` was regenerated deliberately for this reason.
