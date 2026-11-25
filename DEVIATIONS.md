@@ -85,3 +85,9 @@ Mistakes on my side during this check (none affects any reported number, no rece
 - Earlier per-day log-volume estimates used the old 2.0 s block time and were about 33% low. Full-run time estimates are redone with 1.5 s.
 
 Correction to the entry above, same day. The HTTP 403 from publicnode on `eth_getLogs` and receipt calls is its documented policy, not a block caused by my requests: it answers "Archive requests require a personal token" for blocks this old. My earlier guess that the 403 followed my retry storm was wrong. In practice only `polygon.drpc.org` serves this study's historical blocks. `1rpc.io` reached its daily plan limit during the check. `rpc.py` now sets an endpoint aside for 10 minutes after a 403, and for an hour after a "usage limit" answer, instead of retrying it. Consequence: fetching runs on one endpoint, one request at a time, which is within the shared-RPC rules and slower than three endpoints would be.
+
+## 2026-11-25: post.md synced with the published post
+
+`post.md` was edited to match the LinkedIn post after three wording corrections made to the published post on 25 November 2026. The venue comparison now reads "In 21 of 35 markets it is within 5% of the fill total, and in 20 within 5% of the cash moved" instead of "about 20" for both. The sampling rule now reads "on or after 1 September" instead of "after 1 September". The predictions sentence now reads "10 of the 21 scorable predictions I wrote down missed" instead of "10 of my 21 scorable predictions missed".
+
+No figure in the study changed. The `post.md` checksum in `SHA256SUMS` was regenerated deliberately for this reason.
